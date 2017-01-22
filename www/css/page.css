@@ -22,6 +22,10 @@ input[type="checkbox"] {
   display: block;
 }
 
+input[type="checkbox"] {
+  transform: scale(2);
+}
+
 label {
   margin-bottom: 20px;
 }
