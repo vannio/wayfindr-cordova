@@ -246,6 +246,10 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
 
 	// If the beacon is close and represents a new page, then show the page.
+	if (app.currentPage === pageId) {
+		app.currentRSSI = beacon.rssi;
+	}
+
 	if ((beacon.rssi > app.currentRSSI) && app.currentPage != pageId) {
 		app.gotoPage(pageId, beacon)
 		return
@@ -263,7 +267,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
 app.sayWords = function (words) {
 	words = words || 'hello';
-	TTS.speak(words);
+	// TTS.speak(words);
 }
 
 app.gotoPage = function(pageId, beacon) {
