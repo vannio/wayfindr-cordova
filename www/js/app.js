@@ -182,7 +182,11 @@ app.onDeviceReady = function() {
 	// has the iBeacon functions.
 	window.locationManager = cordova.plugins.locationManager
 
-	// Start tracking beacons!
+	// app.startScanForBeacons()
+}
+
+// Start tracking beacons!
+function startScanning () {
 	app.startScanForBeacons()
 }
 
@@ -237,7 +241,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 	// Our regions are defined so that there is one beacon per region.
 	// Get the first (and only) beacon in range in the region.
 	var beacon = pluginResult.beacons[0]
-	document.getElementById('messages').innerHTML = JSON.stringify(beacon.uuid);
+	// document.getElementById('messages').innerHTML = JSON.stringify(beacon.uuid);
 
 	// The region identifier is the page id.
 	var pageId = pluginResult.region.identifier
@@ -246,6 +250,10 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
 
 	// If the beacon is close and represents a new page, then show the page.
+	if (app.currentPage === pageId) {
+		app.currentRSSI = beacon.rssi;
+	}
+
 	if ((beacon.rssi > app.currentRSSI) && app.currentPage != pageId) {
 		app.gotoPage(pageId, beacon)
 		return
@@ -268,8 +276,8 @@ app.sayWords = function (words) {
 
 app.gotoPage = function(pageId, beacon) {
 	app.hidePage(app.currentPage)
-	app.showPage(pageId)
 	app.currentPage = pageId
+	app.showPage(pageId)
 	if (beacon) {
 		app.currentRSSI = beacon.rssi || -200;
 	}
@@ -279,10 +287,9 @@ app.showPage = function(pageId) {
 	var block = document.getElementById(pageId);
 	block.style.display = 'block'
 
-	if document.getElementById('checkbox') === true {
+	if (document.getElementById('checkbox').checked === true && app.currentPage !== 'page-default') {
 		app.sayWords(block.innerText);
 	}
-
 }
 
 app.hidePage = function(pageId) {
