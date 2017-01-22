@@ -14,21 +14,18 @@
 		<p id="messages"></p>
 
     <div class="page" id="page-default">
-      <p>Please move within range of the iBeacons</p>
-			<h3>Settings</h3>
-			<form action="">
-				<input type="checkbox" name="speech_to_text" value="speech_to_text" id="checkbox" >Speech to text <br>
-			</form>
-			<label for="fontsize">Choose Font Size:</label>
-			<br>
-			<select name="fontsize">
-				<option value="12">12</option>
-				<option value="14">14</option>
-				<option value="16">16</option>
-				<option value="18">18</option>
-			</select>
+			<button onclick="startScanning()" class="start-btn">Start Scannin'</button>
+			<h2>Settings</h2>
+			<label>Speech to text<input type="checkbox" name="speech_to_text" value="speech_to_text" id="checkbox"></label>
+			<label for="fontsize">Font Size:
+				<select name="fontsize" id="fontsize">
+					<option value="12">12</option>
+					<option value="14">14</option>
+					<option value="16">16</option>
+					<option value="18">18</option>
+				</select>
+			</label>
 
-			<button onclick="startScanning()">Start Speakin'</button>
     </div>
 
 		<div class="page" id="page-0">
