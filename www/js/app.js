@@ -284,15 +284,14 @@ app.gotoPage = function(pageId, beacon) {
 }
 
 app.setFont = function() {
-	fontSize = document.getElementById('select-font').value;
-	document.body.style.fontSize =  `${fontSize/12}em`;
+	font = document.getElementById('select-font').value.parseInt();
+	document.body.style.fontSize =  (font/12).toString() + 'em';
 }
 
 
 app.showPage = function(pageId) {
 	var block = document.getElementById(pageId);
 	block.style.display = 'block'
-
 
 	app.setFont()
 
