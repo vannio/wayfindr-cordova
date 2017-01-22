@@ -4,12 +4,12 @@ var app = {}
 // Regions that define which page to show for each beacon.
 // app.beaconRegions = [];
 app.beaconRegions = [
-	// {
-	// 	id: 'page-0',
-	// 	uuid:'852c0828-fe67-4dd7-b8ff-52852a66851e',
-	// 	major: 8008,
-	// 	minor: 1337
-	// },
+	{
+		id: 'page-0',
+		uuid:'852c0828-fe67-4dd7-b8ff-52852a66851e',
+		major: 8008,
+		minor: 1337
+	},
   {
     "id": "page-1",
     "uuid": "bbd7be4e-e642-49fd-b8ee-7516456bf2ed",
@@ -164,6 +164,7 @@ app.beaconRegions = [
 
 // Currently displayed page.
 app.currentPage = 'page-default'
+app.currentRSSI = -200;
 
 app.initialize = function() {
 	document.addEventListener(
@@ -236,19 +237,17 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 	// Our regions are defined so that there is one beacon per region.
 	// Get the first (and only) beacon in range in the region.
 	var beacon = pluginResult.beacons[0]
-
-	// console.log(JSON.stringify(pluginResult.beacons[0].minor));
+	document.getElementById('messages').innerHTML = JSON.stringify(beacon.uuid);
 
 	// The region identifier is the page id.
 	var pageId = pluginResult.region.identifier
 
 	//console.log('ranged beacon: ' + pageId + ' ' + beacon.proximity)
 
+
 	// If the beacon is close and represents a new page, then show the page.
-	if ((beacon.proximity == 'ProximityImmediate' || beacon.proximity == 'ProximityNear')
-		&& app.currentPage != pageId)
-	{
-		app.gotoPage(pageId)
+	if ((beacon.rssi > app.currentRSSI) && app.currentPage != pageId) {
+		app.gotoPage(pageId, beacon)
 		return
 	}
 
@@ -267,10 +266,13 @@ app.sayWords = function (words) {
 	TTS.speak(words);
 }
 
-app.gotoPage = function(pageId) {
+app.gotoPage = function(pageId, beacon) {
 	app.hidePage(app.currentPage)
 	app.showPage(pageId)
 	app.currentPage = pageId
+	if (beacon) {
+		app.currentRSSI = beacon.rssi || -200;
+	}
 }
 
 app.showPage = function(pageId) {
