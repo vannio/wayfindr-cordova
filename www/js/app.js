@@ -282,7 +282,11 @@ app.gotoPage = function(pageId, beacon) {
 app.showPage = function(pageId) {
 	var block = document.getElementById(pageId);
 	block.style.display = 'block'
-	app.sayWords(block.innerText);
+
+	if document.getElementById('checkbox') === true {
+		app.sayWords(block.innerText);
+	}
+
 }
 
 app.hidePage = function(pageId) {
