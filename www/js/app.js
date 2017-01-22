@@ -176,14 +176,40 @@ app.initialize = function() {
 // Called when Cordova are plugins initialised,
 // the iBeacon API is now available.
 app.onDeviceReady = function() {
+
 	// Specify a shortcut for the location manager that
 	// has the iBeacon functions.
 	window.locationManager = cordova.plugins.locationManager
 
-	// window.speechSynthesis.speak(SpeechSynthesisUtterance('Hello World, app devices are ready'));
+	document.getElementById('messages').innerHTML = 'Device is ready';
+
+	var u = new SpeechSynthesisUtterance();
+  u.text = 'hello';
+	u.volume = 1;
+  window.speechSynthesis.speak(u);
+
+	document.getElementById('messages').innerHTML = 'Can get past speech synthesis';
 
 	// Start tracking beacons!
 	app.startScanForBeacons()
+}
+
+var sayHello = function () {
+	var u = new SpeechSynthesisUtterance();
+	u.text = 'hello';
+	u.onstart = function () {
+		document.getElementById('messages').innerHTML = 'Speech started, can you hear?';
+	}
+
+	u.onend = function () {
+		document.getElementById('messages').innerHTML = 'Speech ended, did you hear?';
+	}
+
+	u.onerror = function (e) {
+		document.getElementById('messages').innerHTML = 'There was an error:' + e.error;
+	}
+
+	window.speechSynthesis.speak(u);
 }
 
 app.startScanForBeacons = function() {
