@@ -17,13 +17,13 @@ html, body {
 
 label,
 select,
-button,
-input[type="checkbox"] {
+button {
   display: block;
 }
 
 input[type="checkbox"] {
-  transform: scale(2);
+	margin-left: 20px;
+  transform: scale(2.5);
 }
 
 label {
