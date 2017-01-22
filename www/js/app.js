@@ -283,18 +283,20 @@ app.gotoPage = function(pageId, beacon) {
 	}
 }
 
+document.getElementById('select-font').onchange = function() {
+	app.setFont()
+}
+
+
 app.setFont = function() {
-	fontSize = document.getElementById('select-font').value;
-	document.body.style.fontSize =  `${fontSize/12}em`;
+	font = document.getElementById('select-font').value;
+	document.body.style.fontSize =  (parseInt(font)/12).toString() + 'em';
 }
 
 
 app.showPage = function(pageId) {
 	var block = document.getElementById(pageId);
 	block.style.display = 'block'
-
-
-	app.setFont()
 
 	if (document.getElementById('checkbox').checked === true && app.currentPage !== 'page-default') {
 
