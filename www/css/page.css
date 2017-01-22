@@ -3,6 +3,18 @@ html, body {
 	padding: 0px;
 }
 
+.small * {
+  font-size: 20px;
+}
+
+.medium * {
+  font-size: 30px;
+}
+
+.large * {
+  font-size: 50px;
+}
+
 label,
 select,
 button,

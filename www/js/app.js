@@ -271,7 +271,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
 app.sayWords = function (words) {
 	words = words || 'hello';
-	// TTS.speak(words);
+	TTS.speak(words);
 }
 
 app.gotoPage = function(pageId, beacon) {
@@ -289,8 +289,8 @@ document.getElementById('select-font').onchange = function() {
 
 
 app.setFont = function() {
-	font = document.getElementById('select-font').value;
-	document.body.style.fontSize =  (parseInt(font)/12).toString() + 'em';
+	var fontSize = document.getElementById('select-font').value;
+	document.body.className = fontSize;
 }
 
 
