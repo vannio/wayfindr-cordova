@@ -4,15 +4,15 @@ html, body {
 }
 
 .small * {
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .medium * {
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .large * {
-  font-size: 50px;
+  font-size: 3rem;
 }
 
 label,
@@ -29,6 +29,12 @@ label {
 select,
 input[type="checkbox"] {
   margin-top: 10px;
+}
+
+select,
+option {
+  display: block;
+  width: 100%;
 }
 
 .content {
