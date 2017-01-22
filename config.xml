@@ -24,4 +24,5 @@
     </platform>
     <plugin name="com.unarin.cordova.beacon" spec="https://github.com/petermetz/cordova-plugin-ibeacon.git" />
     <plugin name="org.apache.cordova.speech.speechsynthesis" spec="https://github.com/macdonst/SpeechSynthesisPlugin" />
+    <engine name="android" spec="~6.0.0" />
 </widget>

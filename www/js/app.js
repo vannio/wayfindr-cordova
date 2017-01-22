@@ -272,6 +272,11 @@ app.gotoPage = function(pageId) {
 
 app.showPage = function(pageId) {
 	document.getElementById(pageId).style.display = 'block'
+	// var text = document.getElementById(pageId).innerHTML
+	// var msg = new SpeechSynthesisUtterance(text)
+	// var voices = window.fsf.getVoices();
+	// msg.voice = voices[56]
+	// window.speechSynthesis.speak(msg);
 }
 
 app.hidePage = function(pageId) {
