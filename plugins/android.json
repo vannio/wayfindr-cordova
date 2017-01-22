@@ -12,7 +12,17 @@
         },
         "com.unarin.cordova.beacon": {
             "PACKAGE_NAME": "com.wayfindr.hackathon"
+        },
+        "org.apache.cordova.speech.speechrecognition": {
+            "PACKAGE_NAME": "com.wayfindr.hackathon"
+        },
+        "cordova-plugin-tts": {
+            "PACKAGE_NAME": "com.wayfindr.hackathon"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.wayfindr.hackathon"
+        }
+    }
 }
