@@ -26,11 +26,17 @@ var app = {}
 // Regions that define which page to show for each beacon.
 // app.beaconRegions = [];
 app.beaconRegions = [
+	// {
+	// 	id: 'page-1',
+	// 	uuid:'852c0828-fe67-4dd7-b8ff-52852a66851e',
+	// 	major: 8008,
+	// 	minor: 1337
+	// },
 	{
 		id: 'page-1',
-		uuid:'852c0828-fe67-4dd7-b8ff-52852a66851e',
-		major: 8008,
-		minor: 1337
+		uuid:'bbd7be4e-e642-49fd-b8ee-7516456bf2ed',
+		major: 0,
+		minor: 0
 	},
 	{
 		id: 'page-2',
@@ -78,7 +84,7 @@ app.onDeviceReady = function()
 
 app.startScanForBeacons = function()
 {
-	//console.log('startScanForBeacons')
+	// console.log('startScanForBeacons')
 
 	// The delegate object contains iBeacon callback functions.
 	var delegate = new cordova.plugins.locationManager.Delegate()
