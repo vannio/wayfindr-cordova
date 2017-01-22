@@ -283,7 +283,7 @@ app.showPage = function(pageId) {
 	var block = document.getElementById(pageId);
 	block.style.display = 'block'
 
-	if document.getElementById('checkbox') === true {
+	if (document.getElementById('checkbox') === true && app.currentPage !== 'page-default') {
 		app.sayWords(block.innerText);
 	}
 
