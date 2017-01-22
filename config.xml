@@ -24,5 +24,9 @@
     </platform>
     <plugin name="com.unarin.cordova.beacon" spec="https://github.com/petermetz/cordova-plugin-ibeacon.git" />
     <plugin name="org.apache.cordova.speech.speechsynthesis" spec="https://github.com/macdonst/SpeechSynthesisPlugin" />
+<<<<<<< HEAD
+    <engine name="android" spec="~6.0.0" />
+=======
     <plugin name="cordova-plugin-tts" spec="~0.2.3" />
+>>>>>>> fbad062602152418cd8fb4ef705300fa78184db7
 </widget>
