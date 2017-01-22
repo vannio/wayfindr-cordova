@@ -271,7 +271,7 @@ app.didRangeBeaconsInRegion = function(pluginResult) {
 
 app.sayWords = function (words) {
 	words = words || 'hello';
-	TTS.speak(words);
+	// TTS.speak(words);
 }
 
 app.gotoPage = function(pageId, beacon) {
@@ -283,11 +283,21 @@ app.gotoPage = function(pageId, beacon) {
 	}
 }
 
+app.setFont = function() {
+	fontSize = document.getElementById('select-font').value;
+	document.body.style.fontSize =  `${fontSize/12}em`;
+}
+
+
 app.showPage = function(pageId) {
 	var block = document.getElementById(pageId);
 	block.style.display = 'block'
 
+
+	app.setFont()
+
 	if (document.getElementById('checkbox').checked === true && app.currentPage !== 'page-default') {
+
 		app.sayWords(block.innerText);
 	}
 }

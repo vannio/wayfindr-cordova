@@ -14,17 +14,18 @@
 		<p id="messages"></p>
 
     <div class="page" id="page-default">
+
 			<button onclick="startScanning()" class="start-btn">Start Scannin'</button>
 			<h2>Settings</h2>
 			<label>Speech to text<input type="checkbox" name="speech_to_text" value="speech_to_text" id="checkbox"></label>
 			<label for="fontsize">Font Size:
-				<select name="fontsize" id="fontsize">
-					<option value="12">12</option>
-					<option value="14">14</option>
-					<option value="16">16</option>
-					<option value="18">18</option>
-				</select>
-			</label>
+			<select name="fontsize" id="select-font">
+				<option value="" selected disabled> Please select your font size </option>
+				<option value="12">Small</option>
+				<option value="24">Medium</option>
+				<option value="36">Large</option>
+			</select>
+      </label>
 
     </div>
 
